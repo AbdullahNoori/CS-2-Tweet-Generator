@@ -1,20 +1,17 @@
 import sys
 from random import random, randint
 
-if __name__ == '__main__':
-    args = sys.argv
-
 some_file = open("/usr/share/dict/words", "r")
 
 some_lines = some_file.readlines()
 
-ran = randint(0, len(some_lines) -1)
-ind = some_files[ran]
-print(ind)
+random = randint(0, len(some_lines) -1)
+index = some_files[ran]
+print(index)
 
-def ran_words(ran):
+def ran_words(random):
     words = []
-    for i in range(ran):
+    for i in range(random):
 
-if __name__ == '__main__':
-    print(ran_words(ran))
+# if __name__ == '__main__':
+#     print(ran_words(ran))
