@@ -1,17 +1,26 @@
 import sys
 from random import random, randint
 
-some_file = open("/usr/share/dict/words", "r")
+file = open("words.txt", "r")
 
-some_lines = some_file.readlines()
+lines = file.readlines()
 
-random = randint(0, len(some_lines) -1)
-index = some_files[ran]
-print(index)
+def dictionary_words():
+    words_dict = {}
 
-def ran_words(random):
-    words = []
-    for i in range(random):
+    for line in lines:
+        words = line.rstrip('\n').split()
+        for word in words:
+            if word in words_dict.keys():
+                words_dict[word] += 1
+            else:
+                words_dict[word] = 1
 
-# if __name__ == '__main__':
-#     print(ran_words(ran))
+
+    return words_dict
+
+
+
+
+if __name__ == '__main__':
+    print(dictionary_words())

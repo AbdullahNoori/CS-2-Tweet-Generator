@@ -1,7 +1,7 @@
 import random
 from random import randint
 import sys
-import dictionary_words
+# import dictionary_words
 
 some_file = "words.txt"
 some_lines = open(some_file, "r")
@@ -10,16 +10,21 @@ histograms = {"one": 2,
             "fish": 4, "red": 2, "blue": 2
         }
 
-def histogram(histograms):
-    for word in some_lines:
-        word = word.rstrip()
+def histogram():
+    file = open("words.txt", "r")
+    lines = file.readlines()
 
-        if word in histograms:
-            histograms[word] += 1
-        else:
-            histograms[word] = 1
-    random_index = randint(0, len(histograms)-2)
-    print(histoogram, random_index)
+    histogram = {}
+
+    for line in lines:
+        words = line.rstrip('\n').split()
+        for word in words:
+            if word in histogram.keys():
+                histogram[word] += 1
+            else:
+                histogram[word] = 1
+
+    return histogram
 
 def unique_words():
     count = 0
@@ -31,6 +36,21 @@ def unique_words():
             return('error')
     return(count)
 
+
+
+def sample(histogram):
+    tokens = 0
+    for k,v in histogram.items():
+        tokens += v
+    dart = randint(1, tokens)
+    fence = 0
+    for word,count in histogram.items():
+        fence += count
+        if fence >= dart:
+            return word
+
+
+
 def frequency():
     for word in histograms:
         print(f'the word {word} is repeated {histograms[word]} times.')
@@ -40,4 +60,4 @@ def frequency():
 if __name__ == '__main__':
     print(histogram(histograms))
     print(unique_words())
-    print(frequency()
+    print(frequency())
