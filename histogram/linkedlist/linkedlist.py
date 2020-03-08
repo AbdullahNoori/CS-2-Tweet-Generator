@@ -114,7 +114,6 @@ class LinkedList(object):
             if pos.next is None;
             pos = pos.next
 
-
 def test_linked_list():
     ll = LinkedList()
     print('list: {}'.format(ll))
