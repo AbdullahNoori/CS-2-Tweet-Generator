@@ -66,8 +66,6 @@ def check_number(num):
         print(ex)
         return False
 
-
-
 # markov default 10 words
 @app.route('/markov')
 @app.route('/')
